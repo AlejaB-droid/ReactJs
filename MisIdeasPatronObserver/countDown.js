@@ -8,7 +8,7 @@ class Observable{
     }
 
     unsubscribe(notifyingClass){
-        this.observers = this.observers.filter(observer => observer instanceof notifyingClass !== true);
+        this.observers = this.observers.filter(observer => observer !== notifyingClass);
     }
 
     notifyObservable(notification){
@@ -43,13 +43,15 @@ class MyDaysLeft2{
 }
 
 let daysLeft = new DaysLeft();
+let myDaysLeft = new MyDaysLeft();
+let myDaysLeft2 = new MyDaysLeft2();
 
-daysLeft.subscribe(new MyDaysLeft());
-daysLeft.subscribe(new MyDaysLeft2());
+daysLeft.subscribe(myDaysLeft);
+daysLeft.subscribe(myDaysLeft2);
 
 daysLeft.decrease();
 daysLeft.decrease();
 
-daysLeft.unsubscribe(new MyDaysLeft2());
+daysLeft.unsubscribe(myDaysLeft);
 
 daysLeft.decrease();
