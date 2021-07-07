@@ -9,7 +9,7 @@ class Observable {
 
   unsubscribe(notifyingClass) {
     this.observers = this.observers.filter(
-      (observer) => observer instanceof notifyingClass !== true
+      (observer) => observer !== notifyingClass  
     );
   }
 

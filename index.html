@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Zen+Tokyo+Zoo&display=swap"
+      rel="stylesheet"
+    />
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous"> -->
+    <title>Freddie Mercury</title>
+  </head>
+  <body>
+    <div id="title" class="title"></div>
+    <div id="about" class="about"></div>
+    <div id="music" class="music"></div>
+    <footer>&copy; Maria Alejandra Barrios Villalobos - 2021</footer>
+
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous"></script> -->
+
+    <script>
+      let title = React.createElement("h1", null, "Freddie Mercury");
+
+      let about = React.createElement(
+        "p",
+        null,
+        "Freddie Mercury (nacido como Farrokh Bulsara; Stone Town, Zanzíbar; 5 de septiembre de 1946-Kensington, Londres; 24 de noviembre de 1991) fue un cantante, compositor, pianista, guitarrista, diseñador gráfico​ y músico británico de origen parsi e indio,4 conocido por haber sido el vocalista principal de la banda de rock Queen. Como intérprete, ha sido reconocido por su poderosa voz y extravagantes puestas en escena.​ Como compositor, escribió muchos de los éxitos de Queen, tales como «Killer Queen», «Bohemian Rhapsody», «Somebody to Love», «We Are the Champions», «Don't Stop Me Now», «Crazy Little Thing Called Love», «It's a Hard Life» o «Innuendo». Además de la actividad con la banda, en los años ochenta lanzó su carrera como solista, que lo llevó a publicar dos álbumes, Mr. Bad Guy (1985) y Barcelona (1988), este último en colaboración con la soprano española Montserrat Caballé. El sencillo homónimo, una colaboración entre ambos, fue la canción oficial de los Juegos Olímpicos de Barcelona 1992. Murió de una bronconeumonía complicada por el sida el 24 de noviembre de 1991, solo un día después de comunicar oficialmente que padecía esta última enfermedad. En 2006, la revista Time Asia lo nombró como uno de los héroes asiáticos más influyentes de los últimos sesenta años.​ En 2005, en una encuesta organizada por Blender y MTV2, fue nombrado el mejor cantante masculino de todos los tiempos.​ En 2008, la revista estadounidense Rolling Stone lo colocó en el puesto 18 en su lista de los 100 mejores cantantes de todos los tiempos,11​6​ mientras que Classic Rock, al año siguiente, lo consideró el mejor cantante de rock de la historia.​ Por su parte, Allmusic definió a Mercury como «uno de los líderes más carismáticos y dinámicos en la historia del rock».​"
+      );
+
+      const image = React.createElement("img", { src: "assets/img/image.jpg" });
+
+      const arrayMusic = [
+        "1973: Queen",
+        "1974: Queen II",
+        "1974: Sheer Heart Attack",
+        "1975: A Night at the Opera",
+        "1976: A Day at the Races",
+        "1977: News of the World",
+        "1978: Jazz",
+        "1980: The Game",
+        "1980: Flash Gordon",
+        "1982: Hot Space",
+        "1984: The Works",
+        "1985: Mr. Bad Guy",
+        "1986: A Kind of Magic",
+        "1988: Barcelona (con Montserrat Caballé)",
+        "1989: The Miracle",
+        "1991: Innuendo",
+        "1995: Made in Heaven",
+      ];
+      let music = React.createElement(
+        "section",
+        { id: "music" },
+        React.createElement("h2", null, "Discografía"),
+        React.createElement(
+          "ul",
+          { className: "discos" },
+          arrayMusic.map((disco, d) =>
+            React.createElement("li", { key: d }, disco)
+          )
+        )
+      );
+
+      let contacto = React.createElement("h2", null, "Contáctenos");
+
+      ReactDOM.render(title, document.getElementById("title"));
+      ReactDOM.render([about, image], document.getElementById("about"));
+      ReactDOM.render(music, document.getElementById("music"));
+    </script>
+    
+  </body>
+</html>
