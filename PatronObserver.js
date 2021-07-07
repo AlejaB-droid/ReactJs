@@ -56,10 +56,10 @@ class NumberExampleEnglish{
 //creación de objeto observable
 let numberExample = new NumberExample();
 
-//subcriptión de los observables al observador
+//subcriptión de los observadores al observable
 numberExample.subscribe(new NumberExampleSpanish());
 numberExample.subscribe(new NumberExampleEnglish());
 
-//cambio del objeto
+//cambio del objeto que genera reacción a los observadores
 numberExample.increment();
 numberExample.increment();
