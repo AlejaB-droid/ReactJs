@@ -10,11 +10,19 @@ function App() {
 
   return (
     <div>
-    <ColorList colors = {colors} onRemoveColor = {id => {
+    <ColorList 
+    colors = {colors} 
+    onRemoveColor = {id => {
         const newColors = colors.filter(color => color.id !== id);
+        setColors(newColors);
+    }}
+    onRateColor = {(id, rating) => {
+      const newColors = colors.map(color => 
+        color.id === id ? { ...color, rating} : color
+        );
       setColors(newColors);
-    }
-    }/>
+    }}
+    />
     </div>
   );
 }
