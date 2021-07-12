@@ -1,5 +1,6 @@
 import React from "react";
 import { FaTrash } from "react-icons/fa";
+import StarRating from "./StarRating";
 
 
 export default function Color({id, title, color, rating, onRemove = id => id}) {
@@ -7,9 +8,8 @@ export default function Color({id, title, color, rating, onRemove = id => id}) {
         <section>
             <h1>{title}</h1>
             <button onClick={() => onRemove(id)}> <FaTrash/> </button>
-            <div style={{height: 50, backgroundColor: color}}>
-
-            </div>
+            <div style={{height: 50, backgroundColor: color}}></div>
+            <StarRating selectedStar={rating} />
         </section>
     );
 }

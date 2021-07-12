@@ -1,4 +1,3 @@
-
 import React from "react";
 import Color from "./Color";
 
@@ -18,6 +17,7 @@ export default function ColorList ({colors=[], onRemoveColor = id => id}) {
                 {...color}
                 onRemove={onRemoveColor}
                 />
+                
             ))}
         </div>
     );

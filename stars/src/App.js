@@ -9,11 +9,13 @@ function App() {
   const [colors, setColors] = useState(colorData);
 
   return (
+    <div>
     <ColorList colors = {colors} onRemoveColor = {id => {
         const newColors = colors.filter(color => color.id !== id);
       setColors(newColors);
     }
     }/>
+    </div>
   );
 }
 
