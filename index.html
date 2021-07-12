@@ -83,7 +83,7 @@
         return (
           <header className="header text-center fixed-top">
             <h1>Variantes de Loki</h1>
-            <div className="container styleContainer">
+            <div className="row row-cols-2 row-cols-md-2 g-4">
               {props.lokis.map((loki, i) => (
                 <Lokis key={i} {...loki} />
               ))}
