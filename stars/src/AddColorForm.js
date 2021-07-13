@@ -1,17 +1,14 @@
 import React, { useState } from "react";
+import { useColors } from "./ColorProvider";
 
-export default function AddColorForm({ onNewColor = (params) => params }) {
-  //const txtTitle = useRef();
-  //const [title, setTitle] = useState("");
+export default function AddColorForm() {
   const [titleProps, resetTitle] = useInput("");
-  const [colorProps, resetColor] = useInput("#000000");
+  const [colorProps, resetColor] = useInput("#ffffff");
+  const { addColor } = useColors();
 
   const submit = (e) => {
     e.preventDefault();
-    //let title = txtTitle.current.value;
-    //txtTitle.current.value = "blue";
-    //onNewColor(title);
-    onNewColor(titleProps.value, colorProps.value);
+    addColor(titleProps.value, colorProps.value);
     resetTitle("");
     resetColor("");
   };
@@ -24,28 +21,18 @@ export default function AddColorForm({ onNewColor = (params) => params }) {
         placeholder="Nombre del color"
         required
       ></input>
-      <input
-        {...colorProps}
-        type="color"
-        required
-      ></input>
+      <input {...colorProps} type="color" required></input>
       <button>Add</button>
     </form>
   );
-  /* <input
-        onChange={(event) => setTitle(event.target.value)}
-        type="text"
-        value={title}
-        placeholder="Nombre del color"
-        required
-      ></input> */
 }
 
-export const useInput = initialValue => {
-    const [value, setValue] = useState(initialValue);
+export const useInput = (initialValue) => {
+  const [value, setValue] = useState(initialValue);
 
-    return[
-        {value, onChange: e=> setValue(e.target.value)},
-        () => setValue(initialValue)
-    ];
+  return [
+    { value, onChange: (e) => setValue(e.target.value) },
+    () => setValue(initialValue),
+  ];
 };
+

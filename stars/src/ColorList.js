@@ -1,26 +1,19 @@
-import React from "react";
+import React, { useContext } from "react";
 import Color from "./Color";
+import { useColors } from "./ColorProvider";
 
-export default function ColorList ({colors=[], onRemoveColor = id => id, onRateColor = params => params}) {
-    if (!colors.length) {
-        return (
-            <div>
-                There are no colors :c
-            </div>
-        )
-    }
+export default function ColorList() {
+  const { colors } = useColors();
 
-    return (
-        <div>
-            {colors.map(color => (
-                <Color key={color.id}
-                {...color}
-                onRemove={onRemoveColor}
-                onRate={onRateColor}
-                />
-                
-            ))}
-        </div>
-    );
+  if (!colors.length) {
+    return <div>There are no colors :c</div>;
+  }
+
+  return (
+    <div>
+      {colors.map(color => (
+        <Color key={color.id} {...color} />
+      ))}
+    </div>
+  );
 }
-

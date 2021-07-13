@@ -1,15 +1,22 @@
 import React from "react";
 import { FaTrash } from "react-icons/fa";
+import { useColors } from "./ColorProvider";
 import StarRating from "./StarRating";
 
+export default function Color({ id, title, color, rating }) {
+  const { updateRateColor, removeColor } = useColors();
 
-export default function Color({id, title, color, rating, onRemove = id => id, onRate = params => params}) {
-    return (
-        <section>
-            <h1>{title}</h1>
-            <button onClick={() => onRemove(id)}> <FaTrash/> </button>
-            <div style={{height: 50, backgroundColor: color}}></div>
-            <StarRating selectedStar={rating} onRate = {rating => onRate(id, rating)}/>
-        </section>
-    );
+  return (
+    <section>
+      <h1>{title}</h1>
+      <button onClick={() => removeColor(id)}>
+        <FaTrash />
+      </button>
+      <div style={{ height: 50, backgroundColor: color }}></div>
+      <StarRating
+        selectedStar={rating}
+        onRate={rating => updateRateColor(id, rating)}
+      />
+    </section>
+  );
 }
