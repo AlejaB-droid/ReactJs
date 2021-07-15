@@ -51,14 +51,9 @@ function List({ data = [], renderItem, renderEmpty }) {
     <header className="header text-center fixed-top">
       <h1> Loki variants</h1>
       <div className="row row-cols-2 row-cols-md-2 g-4">
-        {/* <div classNameName="row"> */}
-        {/* <div classNameName="col-lg-6">
-         */}
         {data.map((item, i) => (
           <div key={i}>{renderItem(item)}</div>
         ))}
-        {/* </div> */}
-        {/* </div> */}
       </div>
     </header>
   );
@@ -79,7 +74,7 @@ const RenderItem = (item) => {
   );
 };
 const RenderEmpty = () => {
-  return <p>Esta lista esta vacia</p>;
+  return <p>No Lokis to show :c</p>;
 };
 export default function App() {
   return (

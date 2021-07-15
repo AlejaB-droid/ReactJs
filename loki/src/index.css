@@ -11,3 +11,29 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.header{
+  background-color: rgba(15, 68, 5, 0.849);
+  font-family: 'Press Start 2P', cursive;
+  color: rgb(253, 246, 147);
+}
+
+.styleContainer{
+  margin-top: 150px;
+  margin-bottom: 50px;
+}
+
+.card {
+  padding-left: unset;
+  padding-right: unset;
+}
+
+footer{
+  background-color: rgba(46, 49, 248, 0.849);
+  text-align: center;
+  color: white;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
